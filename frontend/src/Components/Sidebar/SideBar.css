@@ -1,0 +1,49 @@
+.VIpgJd-ZVi9od-l4eHX-hSRGPd{
+  display: none;
+}
+/* Initially hide the Google Translate button */
+.skiptranslate.goog-te-gadget {
+  display: none;
+}
+
+/* Show the Google Translate button when the sidebar is hovered */
+.sidebar:hover .skiptranslate.goog-te-gadget {
+  display: block;
+}
+
+/* Style for the Google Translate combo box */
+.skiptranslate.goog-te-gadget .goog-te-combo {
+  border: 1px solid #ffff;
+  height: 35px;
+  font-size: 14px;
+  color: #111;
+  background: #ffff;
+  margin: 10px;
+  position: relative !important; /* Important declaration added */
+
+}
+
+/* Style for the dropdown menu */
+.skiptranslate.goog-te-gadget .goog-te-menu-frame {
+  position: absolute !important;
+  top: 100% !important;
+  margin-top: 1px; /* Adjust as needed to avoid overlapping */
+}
+
+/* Adjust the position of the dropdown arrow */
+.skiptranslate.goog-te-gadget .goog-te-menu-button {
+  position: relative !important;
+  top: -1px !important;
+}
+
+
+
+
+.goog-logo-link {
+  display:none !important;
+}
+
+.goog-te-gadget {
+  color: transparent !important;
+}
+

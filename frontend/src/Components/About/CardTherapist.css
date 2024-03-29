@@ -1,0 +1,142 @@
+
+.therapist {
+  margin: 4rem 6rem;
+  color: #2a2a2a;
+  text-align: center;
+
+}
+
+
+.therapist h3 {
+  color: orangered;
+}
+
+.therapist h1 {
+  font-size: 3rem;
+}
+
+.therapistcard {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.therapistcard .t-card {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 50%;
+  box-shadow: -5px 8px 45px rgba(51, 51, 51, 0.126);
+  transition: all 0.4s;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  
+}
+
+.therapistcard .t-card:hover {
+  border-radius: 10px;
+  height: auto;
+}
+
+.therapistcard .t-card .t-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.therapistcard .t-card:hover .t-image img {
+  border-radius: 10px;
+  transform: translateY(-100px);
+}
+
+.therapistcard .t-card .t-image img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 50%;
+  transition: all .4s;
+  z-index: 99;
+}
+
+.therapistcard .t-card h4,
+.therapistcard .t-card p,
+.therapistcard .t-card .social-links {
+  display: none;
+  text-align: center;
+}
+
+.therapistcard .t-card:hover h4,
+.therapistcard .t-card:hover p,
+.therapistcard .t-card:hover .social-links {
+  display: block;
+}
+
+.therapistcard .t-card h4 {
+  font-size: 21px;
+  color: #0c52a1;
+  font-weight: 600;
+}
+
+.therapistcard  .t-card p {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 2px 0 12px 0;
+}
+
+.therapistcard .t-card .social-links {
+  font-size: 21px;
+  margin: 0 3px;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.4s;
+}
+
+.therapistcard .t-card .social-links:hover {
+  color: #0c52a1;
+}
+
+.doctor {
+  display: inline-flex;
+  width: 120px;
+  height: 3px;
+  background-color: #22424c;
+}
+
+
+.match1:hover {
+  width: max-content;
+  margin: auto;
+ 
+  background: #333d55;
+  color:#ffffff;
+  transform: scale(1.1);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(57, 59, 106, 0.5);
+}
+
+/* Media query for screens smaller than 768px (tablets) */
+@media (max-width: 768px) {
+  .therapistcard .t-card {
+    width: 180px;
+    height: 180px;
+    padding: 40px;
+  }
+}
+
+/* Media query for screens smaller than 576px (mobile) */
+@media (max-width: 576px) {
+  .therapistcard {
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .therapistcard .t-card {
+    width: 100%; 
+    height: auto; 
+    margin: 0 0 20px 0; 
+  }
+}
