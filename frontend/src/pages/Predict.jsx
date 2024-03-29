@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PredictorForm from '../Components/Prediction/PredictorForm';
+import { collection, doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
+import { query, where, getDocs } from 'firebase/firestore';
 
 const Predict = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -13,16 +15,22 @@ const Predict = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const user = auth.currentUser; // Get the currently logged-in user
+        const user = auth.currentUser;
         if (user) {
-          // If user is logged in
-          const userDoc = await db.collection('predictionResults').doc(auth.currentUser?.uid).get(); // Assuming user data is stored in 'predictionResults' collection
-          if (userDoc.exists) {
-            // If user document exists
-            setUserData(userDoc.data()); // Set user data in state
-          } else {
-            console.log('User data not found');
-          }
+          // Construct the query to fetch the collection based on user ID
+          const q = query(collection(db, 'predictionResults'), where('user.id', '==', user.uid));
+          const querySnapshot = await getDocs(q);
+          console.log(querySnapshot);
+          console.log(user.displayName);
+          // Extract data from the query snapshot
+          const userDataArray = [];
+          querySnapshot.forEach((doc) => {
+            userDataArray.push(doc.data());
+          });
+
+          // Set the user data state with the fetched data
+          setUserData(userDataArray);
+          console.log(userDataArray);
         } else {
           console.log('No user logged in');
         }
@@ -37,26 +45,31 @@ const Predict = () => {
   const handleClosePopup = () => {
     setShowPopup(false);
   };
-
   return (
+    <>
     <div className="App">
       <button onClick={handleStartButtonClick}>Start</button>
       {showPopup && <PredictorForm csvfile='questions' video='stressed' onClose={handleClosePopup} />}
       <div style={{ color: 'black' }}>
         <h2 style={{ color: 'black' }}>User Data</h2>
         {userData ? (
-          <div style={{ color: 'black' }}>
-            <p><strong style={{ color: 'black' }}>ID:</strong> {userData.id}</p>
-            <p  style={{ color: 'black' }}><strong>Name:</strong> {userData.name}</p>
-            <p  style={{ color: 'black' }}><strong>Predicted Total:</strong> {userData.predicted_total}</p>
-            <p  style={{ color: 'black' }}><strong>Timestamp:</strong> {userData.timestamp.toDate().toString()}</p>
+          <div className='fetch' style={{ color: 'black' }}>
+            {userData.map((data, index) => (
+              <div key={index}>
+                <p style={{ color: 'black' }}p><strong>ID:</strong> {data.user?.id}</p>
+                <p style={{ color: 'black' }}><strong>Name:</strong> {data.user?.name}</p>
+                <p style={{ color: 'black' }}><strong>Predicted Total:</strong> {data.predicted_total}</p>
+                <p style={{ color: 'black' }}><strong>Timestamp:</strong> {data.timestamp?.toDate().toString()}</p>
+              </div>
+            ))}
           </div>
         ) : (
           <p style={{ color: 'black' }}>Loading...</p>
         )}
       </div>
     </div>
+    </>
   );
-};
+  };
 
 export default Predict;

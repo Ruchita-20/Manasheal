@@ -33,7 +33,7 @@ function App() {
           <Route path="/blog/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/file-manager" element={<FileManager />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/book" element={<Predict/>} />
+          <Route path="/book" element={<Predict isAuth={isAuth}/>} />
           <Route path="*" element={<> not found</>} />
         </Routes>
       </SideBar>
