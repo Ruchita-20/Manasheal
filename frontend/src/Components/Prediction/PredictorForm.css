@@ -1,0 +1,138 @@
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Increase z-index to ensure it's above the video */
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  height: 80%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure the popup remains positioned relative to the video */
+}
+
+.exit-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 10; /* Ensure it appears above the video */
+}
+
+  
+  .answers {
+    width: max-content;
+    color: white;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: "Merriweather", serif;
+    font-weight: 500;
+    font-size:x-large;
+    font-style: bold;
+   }
+  
+  .navigation-btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
+  
+  p{
+    font-family: "Merriweather", serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: xx-large;
+    color: white;
+  }
+  form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Set a lower z-index to ensure it's behind the popup */
+    object-fit: cover;
+  }
+  .popup video {
+    width: 100%;
+    height: 100%;
+    position: relative; /* Ensure the video remains positioned relative to the popup */
+    z-index: -2; /* Ensure it remains behind the popup content */
+  }  
+  
+  .popup {
+    position: relative; /* Ensure the popup remains positioned relative to the video */
+    z-index: 1; /* Ensure the popup appears on top of the video */
+    /* Add your existing styles for the popup */
+  }
+  .background-video video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+h2{
+  color: white;
+}
+.prediction{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Set a lower z-index to ensure it's behind the popup */
+  object-fit: cover;
+}

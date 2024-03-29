@@ -13,6 +13,7 @@ import AddPost from "./pages/AddPost";
 import Login from "./pages/Login";
 import { useState } from "react";
 import BookAppointment from "./pages/BookAppointment";
+import Predict from './pages/Predict';
 function App() {
 
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -32,8 +33,7 @@ function App() {
           <Route path="/blog/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/file-manager" element={<FileManager />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/book" element={<BookAppointment/>} />
-          
+          <Route path="/book" element={<Predict/>} />
           <Route path="*" element={<> not found</>} />
         </Routes>
       </SideBar>
