@@ -135,4 +135,19 @@ h2{
   height: 100%;
   z-index: -1; /* Set a lower z-index to ensure it's behind the popup */
   object-fit: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+hr{
+  border: 2px solid white;
+  border-radius: 5px;
+  margin: 2% 20%;
+}
+.suggestions ul{
+  color: white;
+  font-size:x-large;
+  text-align: justify;
+  padding: 2% 8%;
 }

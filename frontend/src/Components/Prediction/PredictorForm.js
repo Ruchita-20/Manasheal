@@ -149,15 +149,17 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
         </form>
         {!showForm && result !== null && (
           <div className='prediction'>
-            <h2>{`${csvfile} Issue Test Result:`}</h2>
+            <h2><u>{`${csvfile} Issue Test Result`.toUpperCase()}</u></h2>
             <p>Percentage: {result.predicted_total}</p>
-            <p>Severity: {severity}</p> 
-            <div>
+            <p>Severity: {severity}</p> <hr/>
+            <div className='suggestions'>
+              <ul>
             {depressionData[csvfile]?.[severity] && (
             Object.keys(depressionData[csvfile][severity]).map((key) => (
-          <p key={key}>{depressionData[csvfile][severity][key]}</p>
+          <li key={key}>{depressionData[csvfile][severity][key]}</li>
              ))
             )}
+            </ul>
             </div>
           </div>
         )}
