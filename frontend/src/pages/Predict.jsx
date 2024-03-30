@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import PredictorForm from '../Components/Prediction/PredictorForm';
-import { collection, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../firebase-config';
-import { query, where, getDocs } from 'firebase/firestore';
 
 const Predict = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [popupType, setPopupType] = useState(null);
   const [userData, setUserData] = useState(null);
 
-  const handleStartButtonClick = () => {
+  const handleStartButtonClick = (type) => {
+    console.log('Button clicked:', type);
     setShowPopup(true);
+    setPopupType(type);
   };
+  
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -44,32 +47,36 @@ const Predict = () => {
 
   const handleClosePopup = () => {
     setShowPopup(false);
+    setPopupType(null);
   };
+
   return (
     <>
-    <div className="App">
-      <button onClick={handleStartButtonClick}>Start</button>
-      {showPopup && <PredictorForm csvfile='questions' video='stressed' onClose={handleClosePopup} />}
-      <div style={{ color: 'black' }}>
-        <h2 style={{ color: 'black' }}>User Data</h2>
-        {userData ? (
-          <div className='fetch' style={{ color: 'black' }}>
-            {userData.map((data, index) => (
-              <div key={index}>
-                <p style={{ color: 'black' }}p><strong>ID:</strong> {data.user?.id}</p>
-                <p style={{ color: 'black' }}><strong>Name:</strong> {data.user?.name}</p>
-                <p style={{ color: 'black' }}><strong>Predicted Total:</strong> {data.predicted_total}</p>
-                <p style={{ color: 'black' }}><strong>Timestamp:</strong> {data.timestamp?.toDate().toString()}</p>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p style={{ color: 'black' }}>Loading...</p>
-        )}
+      <div className="App">
+        <button onClick={() => handleStartButtonClick('depression')}>Depression</button>
+        <button onClick={() => handleStartButtonClick('anger')}>Anger</button>
+        <button onClick={() => handleStartButtonClick('relationship')}>Relationship</button>
+        <div style={{ color: 'black' }}>
+          <h2 style={{ color: 'black' }}>User Data</h2>
+          {userData ? (
+            <div className='fetch' style={{ color: 'black' }}>
+              {userData.map((data, index) => (
+                <div key={index}>
+                  <p style={{ color: 'black' }}><strong>ID:</strong> {data.user?.id}</p>
+                  <p style={{ color: 'black' }}><strong>Name:</strong> {data.user?.name}</p>
+                  <p style={{ color: 'black' }}><strong>Predicted Total:</strong> {data.predicted_total}</p>
+                  <p style={{ color: 'black' }}><strong>Timestamp:</strong> {data.timestamp?.toDate().toString()}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p style={{ color: 'black' }}>Loading...</p>
+          )}
+        </div>
       </div>
-    </div>
+      {showPopup && <PredictorForm csvfile={popupType} video='stressed' onClose={handleClosePopup} />}
     </>
   );
-  };
+};
 
 export default Predict;

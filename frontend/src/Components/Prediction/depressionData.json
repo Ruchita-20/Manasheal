@@ -1,0 +1,54 @@
+{
+    "depression": {
+      "mild": {
+        "1": "Establish a Routine: Create a daily schedule to provide structure and predictability.",
+        "2": "Physical Activity: Engage in regular exercise, even if it's just a short walk, as it can positively impact mood.",
+        "3": "Social Connections: Stay connected with friends and family; social support is crucial."
+      },
+      "severe": {
+        "1": "Professional Help: Seek immediate help from a mental health professional, psychiatrist, or emergency services.",
+        "2": "Medication: In severe cases, medication may be essential; consult with a psychiatrist for appropriate prescriptions.",
+        "3": "Hospitalization: In extreme situations, hospitalization may be necessary for intensive treatment and supervision."
+      },
+      "moderate": {
+        "1": "Therapy: Consider therapy, such as cognitive-behavioral therapy (CBT) or interpersonal therapy, with a mental health professional.",
+        "2": "Medication: Consult with a psychiatrist about the potential benefits of antidepressant medication.",
+        "3": "Hobbies and Activities: Engage in activities you enjoy to help improve mood and provide a sense of accomplishment."
+      }
+    },
+    "anger": {
+        "mild": {
+          "1": "Self-Awareness: Recognize triggers and warning signs of anger.",
+          "2": "Deep Breathing: Practice deep breathing exercises to calm the mind and body.",
+          "3": "Time-Outs: Take breaks when feeling overwhelmed or frustrated to cool down."
+        },
+        "moderate": {
+          "1": "Anger Management Therapy: Seek therapy or counseling to learn coping strategies and communication skills.",
+          "2": "Stress Management Techniques: Learn stress reduction techniques such as mindfulness or meditation.",
+          "3": "Healthy Expression: Find healthy outlets for anger, such as physical activity or creative pursuits."
+        },
+        "severe": {
+          "1": "Professional Intervention: Seek help from a mental health professional specializing in anger management.",
+          "2": "Cognitive Behavioral Therapy (CBT): Engage in CBT to identify and change negative thought patterns and behaviors.",
+          "3": "Medication: In some cases, medication may be prescribed to help manage anger alongside therapy."
+        }
+    },
+    "relationship": {
+        "mild": {
+          "1": "Open Communication: Engage in honest and respectful conversations to address any concerns or frustrations.",
+          "2": "Quality Time: Make an effort to spend enjoyable and meaningful time together, nurturing your connection.",
+          "3": "Active Listening: Practice attentive listening skills, showing empathy and understanding towards your partner's feelings and viewpoints."
+        },
+        "moderate": {
+          "1": "Couples Therapy: Consider seeking professional guidance to work through underlying issues and improve communication.",
+          "2": "Conflict Resolution: Learn constructive ways to manage conflicts and find mutually satisfactory resolutions.",
+          "3": "Self-Care: Prioritize your individual well-being by engaging in activities that promote self-care and seeking support from trusted sources."
+        },
+        "severe": {
+          "1": "Intensive Therapy: Explore intensive therapy options such as retreats or specialized programs to address deep-rooted issues and rebuild trust.",
+          "2": "Temporary Separation: If necessary, consider taking a break to allow both partners time and space for reflection and personal growth.",
+          "3": "Reevaluation: Seek professional assistance to assess the viability of the relationship and make informed decisions about its future."
+        }
+  }
+}
+  

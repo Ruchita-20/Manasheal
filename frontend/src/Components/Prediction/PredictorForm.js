@@ -4,20 +4,21 @@ import Papa from 'papaparse';
 import './PredictorForm.css'; 
 import { collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
 import { db, auth } from '../../firebase-config'; // Import your Firestore instance
+import depressionData from './depressionData.json'; 
 
 const PredictorForm = ({ csvfile, video, onClose }) => {
   const [questions, setQuestions] = useState([]);
-  
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [responses, setResponses] = useState(Array(10).fill('10'));
   const [result, setResult] = useState(null);
   const [selectedOption, setSelectedOption] = useState({});
   const [showForm, setShowForm] = useState(true);
+  const [severity, setSeverity] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/${csvfile}.csv`);
+        const response = await fetch(`/${csvfile}.csv`); // Assuming CSV files are in the public folder
         const reader = response.body.getReader();
         const result = await reader.read();
         const decoder = new TextDecoder('utf-8');
@@ -30,15 +31,26 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
     };
 
     fetchData();
-  }, []);
+  }, [csvfile]);
 
   useEffect(() => {
     if (result !== null) {
       console.log('Result State:', result);
       // Call function to store result in Firestore
+      setSeverity(calculateSeverity(result.predicted_total));
       storePredictionResult(result.predicted_total);
     }
   }, [result]);
+
+  const calculateSeverity = (percentage) => {
+    if (percentage < 36) {
+      return "mild";
+    } else if (percentage >= 36 && percentage < 75) {
+      return "moderate";
+    } else {
+      return "severe";
+    }
+  };
 
   const storePredictionResult = async (predictedTotal) => {
     try {
@@ -137,8 +149,16 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
         </form>
         {!showForm && result !== null && (
           <div className='prediction'>
-            <h2>Prediction Result:</h2>
-            <p>Predicted Percentage: {result.predicted_total}</p>
+            <h2>{`${csvfile} Issue Test Result:`}</h2>
+            <p>Percentage: {result.predicted_total}</p>
+            <p>Severity: {severity}</p> 
+            <div>
+            {depressionData[csvfile]?.[severity] && (
+            Object.keys(depressionData[csvfile][severity]).map((key) => (
+          <p key={key}>{depressionData[csvfile][severity][key]}</p>
+             ))
+            )}
+            </div>
           </div>
         )}
       </div>
