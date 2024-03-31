@@ -1,0 +1,65 @@
+.App {
+  width: 100%;
+  height: 100vh;
+}
+
+.user-data-container {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-data-table th, .user-data-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.user-data-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.user-data-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-data-table tr:hover {
+  background-color: #ddd;
+}
+
+.chart-container {
+  margin-top: 20px;
+  width: 80%;
+  height: 400px;
+  margin: auto;
+}
+
+.user-data-container .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.data-display {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-data-table {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.CanvasJSReact.CanvasJSChart {
+  flex: 1;
+}

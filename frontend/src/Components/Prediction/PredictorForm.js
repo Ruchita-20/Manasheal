@@ -52,10 +52,17 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
     }
   };
 
+
   const storePredictionResult = async (predictedTotal) => {
     try {
       const docRef = await addDoc(collection(db, 'predictionResults'), {
-        user: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
+        user: { 
+          name: auth.currentUser.displayName, 
+          id: auth.currentUser.uid 
+        },
+        test: { 
+          category: csvfile, // Category is the key
+        },
         predicted_total: predictedTotal,
         timestamp: new Date(),
       });
@@ -64,6 +71,8 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
       console.error('Error adding prediction result: ', error);
     }
   };
+  
+  
 
   const handleResponseChange = (index, value) => {
     const newResponses = [...responses];
