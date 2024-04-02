@@ -15,11 +15,10 @@ import Progress from "./pages/Progress";
 import { useState } from "react";
 import BookAppointment from "./pages/BookAppointment";
 import Predict from './pages/Predict';
+import Match from "./pages/Match";
 function App() {
 
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-
-
 
   return (
     <Router>
@@ -37,6 +36,7 @@ function App() {
           <Route path="/services/text" element={<Predict isAuth={isAuth}/>} />
           <Route path="/book" element={<BookAppointment/>} />
           <Route path="/progress" element={<Progress  isAuth={isAuth}/>} />
+          <Route path="/match" element={<Match />} /> 
           <Route path="*" element={<> not found</>} />
         </Routes>
       </SideBar>

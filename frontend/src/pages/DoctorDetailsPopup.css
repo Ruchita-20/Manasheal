@@ -1,0 +1,43 @@
+.doctor-details-popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333d55;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.doctor-details-popup-content {
+  text-align: center;
+  font-size: 10%;
+}
+
+.doctor-details-exit-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.img {
+  width: 20%; /* Ensure the image does not exceed the width of its container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Add border radius to the image */
+  margin-bottom: 10px; /* Add some bottom margin */
+}
+
+.doctor-label {
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.doctor-info {
+  font-size: 14px;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Predict from './Predict';
 import { BiCheckboxChecked } from "react-icons/bi";
@@ -11,10 +11,13 @@ import Hero from '../Components/Hero/Hero';
 import CounterUp from '../Components/CounterUp';
 import bgmn2 from '../Components/images/bgmn2.jpeg'
 import Banner from '../Components/images/banner.png'
-
+import Match from './Match';
 
 const Home = () => {
- 
+  const [showMatch, setShowMatch] = useState(true);
+  const handleCloseMatch = () => {
+    setShowMatch(false);
+  };
 
   const heartIconStyle = {
     color: '#EE7214',
@@ -93,7 +96,7 @@ const Home = () => {
                     </p>
                     
                     <div className='matching'>
-                      <TypeForm/>
+                    <button>{showMatch && <Match onClose={handleCloseMatch} />}</button>
                     </div>
                   </div>
                 <div style={{  overflow: 'hidden', width:'600px', height:'500px', marginLeft:'80px' }} className="col-lg-5 order-1 order-lg-2 text-center text-lg-start mx-4 flex-fill" data-aos="fade-left" data-aos-delay="200">
