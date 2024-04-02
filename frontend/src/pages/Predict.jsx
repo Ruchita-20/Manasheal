@@ -24,16 +24,18 @@ const ButtonCard = ({ category, onClick, imageSrc, description }) => {
 const Predict = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState(null);
- 
+  const [video, setVideo] = useState(null);
   const handleStartButtonClick = (type) => {
     console.log('Button clicked:', type);
     setShowPopup(true);
     setPopupType(type);
+    setVideo(type);
   };
 
   const handleClosePopup = () => {
     setShowPopup(false);
     setPopupType(null);
+    setVideo(null);
   };
 
 
@@ -61,7 +63,7 @@ const Predict = () => {
           />
         </div>
       </div>
-      {showPopup && <PredictorForm csvfile={popupType} video='stressed' onClose={handleClosePopup} />}
+      {showPopup && <PredictorForm csvfile={popupType} video={video} onClose={handleClosePopup} />}
     </>
   );
 };

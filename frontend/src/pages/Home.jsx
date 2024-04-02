@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './Home.css';
-
-import DepressionCard from '../Components/Test/DepressionCard';
+import Predict from './Predict';
 import { BiCheckboxChecked } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import { BsBookFill } from "react-icons/bs";
@@ -9,8 +8,6 @@ import { LiaStarSolid } from "react-icons/lia";
 import { FaSmile } from "react-icons/fa";
 import Footer from '../Components/Footer/Footer';
 import Hero from '../Components/Hero/Hero';
-import RelationshipCard from '../Components/Test/RelationshipCard';
-import AngerCard from '../Components/Test/AngerCard';
 import CounterUp from '../Components/CounterUp';
 import bgmn2 from '../Components/images/bgmn2.jpeg'
 import Banner from '../Components/images/banner.png'
@@ -115,10 +112,8 @@ const Home = () => {
         <br /><br />
 
         <section id="vision" className="vision d-flex align-items-center section-bg" >
-          <div className="row row-cols-1 row-cols-md-3 g-4 ">
-            <RelationshipCard/>
-            <DepressionCard/>
-            <AngerCard/>
+          <div className="row">
+            <Predict/>
             
             </div>
         </section>

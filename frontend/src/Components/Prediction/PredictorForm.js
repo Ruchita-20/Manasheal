@@ -134,7 +134,7 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
           </video>
           {showForm && questions.length > 0 && (
             <>
-              <p className='question'>{questions[currentQuestionIndex]?.question}</p>
+              <p className='questionscsv'>{questions[currentQuestionIndex]?.question}</p>
               {questions[currentQuestionIndex+1]? 
               <div className="answers">
                 <label><input type='radio' value="10" name={`col${currentQuestionIndex}`} checked={selectedOption[currentQuestionIndex] === "10"} onChange={() => handleResponseChange(currentQuestionIndex, "10")}/>Rarely</label>
@@ -158,7 +158,7 @@ const PredictorForm = ({ csvfile, video, onClose }) => {
         </form>
         {!showForm && result !== null && (
           <div className='prediction'>
-            <h2><u>{`${csvfile} Issue Test Result`.toUpperCase()}</u></h2>
+            <h2 className='resultname'><u>{`${csvfile} Issue Test Result`.toUpperCase()}</u></h2>
             <p>Percentage: {result.predicted_total}</p>
             <p>Severity: {severity}</p> <hr/>
             <div className='suggestions'>

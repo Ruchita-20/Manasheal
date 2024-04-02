@@ -73,12 +73,12 @@
     cursor: not-allowed;
   }
   
-  p{
+.questionscsv {
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: normal;
     font-size: xx-large;
-    color: white;
+    color: white !important;
   }
   form{
     height: 100%;
@@ -124,7 +124,7 @@
     transform: translateX(-50%) translateY(-50%);
   }
 
-h2{
+.resultname h2{
   color: white;
 }
 .prediction{
