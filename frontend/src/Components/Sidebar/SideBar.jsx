@@ -13,6 +13,11 @@ import Manasheal from "./MANSHEAL.png";
 import './SideBar.css'
 const routes = [
   {
+    path: '/progress',
+    name: 'Profile',
+    icon: <FaUser/>,
+  },
+  {
     path: '/',
     name: 'Home',
     icon: <FaHome />,

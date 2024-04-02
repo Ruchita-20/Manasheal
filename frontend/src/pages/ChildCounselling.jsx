@@ -12,7 +12,7 @@ import { FaSmile } from "react-icons/fa";
 import Banner from "../Components/images/banner.png";
 import Child from "../Components/images/child.jpg"
 import CounterUp from "../Components/CounterUp";
-
+import Predict from "./Predict";
 
 
 
@@ -110,15 +110,10 @@ import CounterUp from "../Components/CounterUp";
         <h4 className='text-center' style={{color:'orangered'}} >TRY OUR FREE SELF ASSESSMENT</h4>
         <br /><br />
 
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-        <RelationshipCard/>
-        <DepressionCard/>
-        <AngerCard/>
-      </div>
+<Predict/>
         
 
         <ChildTherapistCard/><br/><br/>
-
 
         
         <section id="stats" className="stats">

@@ -11,6 +11,7 @@ import ChildCounselling from "./pages/ChildCounselling"
 import Posts from "./pages/Posts";
 import AddPost from "./pages/AddPost";
 import Login from "./pages/Login";
+import Progress from "./pages/Progress";
 import { useState } from "react";
 import BookAppointment from "./pages/BookAppointment";
 import Predict from './pages/Predict';
@@ -33,7 +34,9 @@ function App() {
           <Route path="/blog/login" element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/file-manager" element={<FileManager />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/book" element={<Predict isAuth={isAuth}/>} />
+          <Route path="/services/text" element={<Predict isAuth={isAuth}/>} />
+          <Route path="/book" element={<BookAppointment/>} />
+          <Route path="/progress" element={<Progress  isAuth={isAuth}/>} />
           <Route path="*" element={<> not found</>} />
         </Routes>
       </SideBar>
