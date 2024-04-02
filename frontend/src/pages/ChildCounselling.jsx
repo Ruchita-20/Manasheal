@@ -1,9 +1,6 @@
 import Hero from "../Components/Hero/Hero";
 import ChildCard from "../Components/About/ChildCard";
 import ChildTherapistCard from "../Components/About/ChildTherapistCard";
-import DepressionCard from "../Components/Test/DepressionCard";
-import RelationshipCard from "../Components/Test/RelationshipCard";
-import AngerCard from "../Components/Test/AngerCard";
 import Footer from "../Components/Footer/Footer";
 import { FaHeart } from "react-icons/fa";
 import { BsBookFill } from "react-icons/bs";
